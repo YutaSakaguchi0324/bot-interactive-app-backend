@@ -42,6 +42,9 @@ class Response:
         elif user_input == "こんばんは":
             bot_response = "こんばんは。"
         
+        elif user_input == "ゆちすき":
+            bot_response = "しおちすき"
+        
         elif user_input == "今何時？":
             dt = datetime.datetime.now()
             bot_response = f'{dt.hour}時{dt.minute}分です。'
