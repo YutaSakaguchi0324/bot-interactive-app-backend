@@ -95,7 +95,7 @@ class Response:
 
 # データベースに関する処理
 class Database:
-    _DBNAME = 'TEST.db'
+    _DBNAME = 'HISTORY.db'
     
     def register(user_input, bot_response, response_timestamp):
         #データベースに会話記録を保存する
@@ -116,6 +116,9 @@ class Database:
         # データベースから会話履歴を取得する
         conn = sqlite3.connect(Database._DBNAME)
         cur = conn.cursor()
+        
+        cur.execute('CREATE TABLE IF NOT EXISTS history(user_input STRING, bot_response STRING, response_timestamp STRING)')
+        
         db_col = [ "user_input", "bot_response", "response_timestamp" ]
         cur.execute('select * from history')
         select_history = cur.fetchall()
