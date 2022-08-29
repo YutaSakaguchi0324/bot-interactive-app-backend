@@ -4,6 +4,7 @@ Created on Wed Aug 24 00:17:09 2022
 
 @author: public
 """
+
 import requests
 import json
 import datetime
@@ -15,7 +16,10 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-origins = ["http://localhost:3000",] # クライアントのurl
+origins = [
+    "http://localhost:3000",
+    "https://bot-interactive-app.vercel.app",
+] # クライアントのurl
 
 app.add_middleware(
     CORSMiddleware,
